@@ -1,0 +1,16 @@
+stages: 
+    data_ingestion:
+      cmd: python src/IRIS_MLops/pipeline/stage01_data_ingestion.py
+      deps:
+        - src/IRIS_MLops/pipeline/stage01_data_ingestion.py
+        - config/config.yaml
+      outs:
+        - artifacts/data_ingestion/IRIS.csv
+
+    data_validation:
+      cmd: python src/IRIS_MLops/pipeline/stage02_data_validation.py
+      deps:
+        - src/IRIS_MLops/pipeline/stage01_data_ingestion.py
+        - src/IRIS_MLops/pipeline/stage02_data_validation.py
+      outs:
+        - artifacts/data_validation/status.txt 
