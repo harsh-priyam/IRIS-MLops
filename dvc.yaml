@@ -13,4 +13,4 @@ stages:
         - src/IRIS_MLops/pipeline/stage01_data_ingestion.py
         - src/IRIS_MLops/pipeline/stage02_data_validation.py
       outs:
-        - artifacts/data_validation/status.txt 
+        - artifacts/data_validation/status.txt  
