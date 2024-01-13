@@ -30,7 +30,7 @@ class ModelEvaluation:
         test_y = test_data[[self.config.target_column]]
 
        
-        
+          
 
 
         mlflow.set_registry_uri(self.config.mlflow_uri)
