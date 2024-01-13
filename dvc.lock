@@ -5,8 +5,8 @@ stages:
     deps:
     - path: config/config.yaml
       hash: md5
-      md5: 1a484bf19337f9f433a041e61da094b1
-      size: 543
+      md5: 97b32d83c6977a7f8d2491524612f481
+      size: 752
     - path: src/IRIS_MLops/pipeline/stage01_data_ingestion.py
       hash: md5
       md5: 136aecd338ab0216fa60f135aefaab75
@@ -52,3 +52,23 @@ stages:
       hash: md5
       md5: 959563127e231f6dcb00a3379f8b5cd0
       size: 3567
+  model_training:
+    cmd: python src/IRIS_MLops/pipeline/stage04_model_training.py
+    deps:
+    - path: src/IRIS_MLops/pipeline/stage01_data_ingestion.py
+      hash: md5
+      md5: 136aecd338ab0216fa60f135aefaab75
+      size: 885
+    - path: src/IRIS_MLops/pipeline/stage03_data_transformation.py
+      hash: md5
+      md5: 7aaa7113cb75f45fa7b2f1c57533bbae
+      size: 903
+    - path: src/IRIS_MLops/pipeline/stage04_model_training.py
+      hash: md5
+      md5: ac80845842445ebcb21e1ba9b753aa97
+      size: 824
+    outs:
+    - path: artifacts/model_trainer/model.joblib
+      hash: md5
+      md5: 2a5fff4b1a9816172ed26f999d49629b
+      size: 2151

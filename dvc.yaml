@@ -23,3 +23,12 @@ stages:
       outs:
         - artifacts/data_transformation/test.csv
         - artifacts/data_transformation/train.csv
+    
+    model_training:
+      cmd: python src/IRIS_MLops/pipeline/stage04_model_training.py
+      deps:
+        - src/IRIS_MLops/pipeline/stage04_model_training.py
+        - src/IRIS_MLops/pipeline/stage03_data_transformation.py
+        - src/IRIS_MLops/pipeline/stage01_data_ingestion.py
+      outs:
+        - artifacts/model_trainer/model.joblib
