@@ -5,5 +5,5 @@ COLUMNS:
  petal_width: float64
  species: object
 
-TARGET:
+TARGET_COLUMN:
  name: species
