@@ -32,3 +32,12 @@ stages:
         - src/IRIS_MLops/pipeline/stage01_data_ingestion.py
       outs:
         - artifacts/model_trainer/model.joblib
+  
+    model_evaluation:
+      cmd: python src/IRIS_MLops/pipeline/stage05_model_evaluation.py
+      deps:
+        - src/IRIS_MLops/pipeline/stage03_data_transformation.py
+        - src/IRIS_MLops/pipeline/stage04_model_training.py
+        - src/IRIS_MLops/pipeline/stage05_model_evaluation.py
+      outs:
+        - artifacts/model_evaluation/metrics.json 
